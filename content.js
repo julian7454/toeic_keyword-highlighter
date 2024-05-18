@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener((message) => {
 
           // 遍歷要查找的單詞列表
           words.forEach((word) => {
-            const regex = new RegExp("\\b" + word + "\\b", "g"); // 創建一個正則表達式，匹配獨立的單詞
+            const regex = new RegExp("\\b" + word + "\\b", "gi"); // 創建一個正則表達式，匹配獨立的單詞
             if (modifiedText.match(regex)) {
               // 檢查文本是否包含匹配到的單詞
               modifiedText = modifiedText.replace(

@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "TOEIC keyword highlighter",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "能夠在當前網頁上將 TOEIC 重要單字透過紅色標示出來，方便閱讀英文時學習和記憶。",
     "icons": {
       "16": "image-16x16.jpg",
