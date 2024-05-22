@@ -8,4 +8,4 @@
 https://www.pass-the-toeic-test.com/toeic-word-list.php
 
 ### 下載連結：
-https://chrome.google.com/webstore/detail/toeic-keyword-highlighter/idejjkhnklgejinkjbejecgogjbehmac/reviews
+https://chrome.google.com/webstore/detail/toeic-keyword-highlighter/idejjkhnklgejinkjbejecgogjbehmac
