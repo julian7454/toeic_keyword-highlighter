@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((message) => {
         const childNodes = node.childNodes;
         let hasNonTextNode = false;
 
-        // 检查节点的子节点是否包含非文本节点
+        // 檢查節點的子節點是否包含非文字節點
         for (let i = 0; i < childNodes.length; i++) {
           if (childNodes[i].nodeType !== Node.TEXT_NODE) {
             hasNonTextNode = true;
@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((message) => {
           }
         }
 
-        // 如果节点没有子节点或者子节点全部为文本节点，则进行处理
+        // 如果節點沒有子節點或子節點全部為文字節點，則進行處理
         if (!hasNonTextNode) {
           const text = node.textContent;
           let modifiedText = text;
