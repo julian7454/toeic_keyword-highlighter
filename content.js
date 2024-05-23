@@ -27,10 +27,18 @@ chrome.runtime.onMessage.addListener((message) => {
             const regex = new RegExp("\\b" + word + "\\b", "gi"); // 創建一個正則表達式，匹配獨立的單詞
             if (modifiedText.match(regex)) {
               // 檢查文本是否包含匹配到的單詞
-              modifiedText = modifiedText.replace(
-                regex,
-                `<span style="color: red;">${word}</span>`
-              ); // 使用 span 包裹匹配到的單詞
+              modifiedText = modifiedText.replace(regex, (match) => {
+                // 使用函數進行替換，以保留原始文本的大小寫
+                const replacement = `<span style="color: red;">${word}</span>`;
+                // 檢查原始匹配的字符串是否包含大寫字母
+                if (/[A-Z]/.test(match)) {
+                  // 如果包含大寫，則將替換文本中的單詞轉換為與原始匹配相同的大小寫
+                  return replacement.replace(word, match);
+                }
+                // 如果不包含大寫，則直接使用小寫替換文本
+                return replacement;
+              });
+              
               textModified = true; // 如果文本有被修改過，設置為 true
             }
           });
