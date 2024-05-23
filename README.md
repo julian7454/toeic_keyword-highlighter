@@ -9,3 +9,6 @@ https://www.pass-the-toeic-test.com/toeic-word-list.php
 
 ### 下載連結：
 https://chrome.google.com/webstore/detail/toeic-keyword-highlighter/idejjkhnklgejinkjbejecgogjbehmac
+
+#### todo
+- 更換下載說明圖片為修正後版本
