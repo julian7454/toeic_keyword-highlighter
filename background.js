@@ -5,20 +5,20 @@ const words=["ability","abroad","absolutely","accept","access","accessible","acc
 // });
 chrome.action.onClicked.addListener(handleClick);
 
-function handleClick() {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const activeTabId = tabs[0].id;
-    // chrome.scripting.executeScript({
-    //     target: { tabId: activeTabId },
-    //     files: ["content.js"],
-    //   });
-    try {
-      chrome.tabs.sendMessage(activeTabId, {
-        type: "executeContentScript",
-        words,
-      });
-    } catch (error) {
-      // Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.
-    }
-  });
+    function handleClick() {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            const activeTabId = tabs[0].id;
+        // chrome.scripting.executeScript({
+        //     target: { tabId: activeTabId },
+        //     files: ["content.js"],
+        //   });
+        try {
+            chrome.tabs.sendMessage(activeTabId, {
+                type: "executeContentScript",
+                words,
+            });
+        } catch (error) {
+            // Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.
+        }
+    });
 }
