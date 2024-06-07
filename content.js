@@ -45,7 +45,7 @@ function processAndReplaceTextNodes(currentNode, elementStack, words) {
 }
 
 function processNode(words) {
-    const elementStack = Array.from(
+    const elementQueue = Array.from(
         document.querySelectorAll(
             "p, h1, h2, h3, h4, h5, h6, li, td, a, span, q, dl, details, label, code"
         )
@@ -57,14 +57,14 @@ function processNode(words) {
 
         // console.time("processNode");
 
-        while (elementStack.length && count < chunkSize) {
-            const currentNode = elementStack.pop();
+        while (elementQueue.length && count < chunkSize) {
+            const currentNode = elementQueue.shift();
             count++;
 
-            processAndReplaceTextNodes(currentNode, elementStack, words);
+            processAndReplaceTextNodes(currentNode, elementQueue, words);
         }
 
-        if (elementStack.length) {
+        if (elementQueue.length) {
             // console.log('stack length' + elementStack.length);
             // for testing
             // processNextChunk();
