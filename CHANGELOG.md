@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.3]
+優化 query element 改用 queue
+
 ## [1.0.2]
 效能優化
 優化 query element
