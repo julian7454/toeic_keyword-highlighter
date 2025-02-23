@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.4]
+添加單字片語
+
 ## [1.0.3]
 優化 query element 改用 queue
 

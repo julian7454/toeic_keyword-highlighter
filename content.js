@@ -1,3 +1,4 @@
+// for production
 chrome.runtime.onMessage.addListener((message) => {
     if (message.type === "executeContentScript") {
         const words = message.words;
@@ -75,6 +76,7 @@ function processNode(words) {
     }
     // for testing
     // processNextChunk();
+    // for production
     requestAnimationFrame(processNextChunk);
 }
 // for testing

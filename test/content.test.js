@@ -206,4 +206,33 @@ describe("processNode function", () => {
         expect(spanElements[0].textContent).toBe("text");
         expect(spanElements[1].textContent).toBe("example");
     });
+
+    // 測試片語 in charge of
+    it('應正確處理片語包含其他單字', () => {
+        document.body.innerHTML = `
+            <div id="test-container">
+                <p>charge</p>
+                <p>He is in charge of the project.</p>
+                <p>charge</p>
+            </div>
+        `;
+
+        processNode(["in charge of", "charge"]);
+
+        const spanElements = document.querySelectorAll("span");
+        expect(spanElements.length).toBe(4);
+        expect(spanElements[0].textContent).toBe("charge");
+        expect(spanElements[1].textContent).toBe("in charge of");
+        expect(spanElements[2].textContent).toBe("charge");
+        expect(spanElements[3].textContent).toBe("charge");
+
+        expect(document.body.innerHTML).toBe(`
+            <div id="test-container">
+                <p><span class="highlighted-word" style="color: red;">charge</span></p>
+                <p>He is <span class="highlighted-word" style="color: red;">in <span class="highlighted-word" style="color: red;">charge</span> of</span> the project.</p>
+                <p><span class="highlighted-word" style="color: red;">charge</span></p>
+            </div>
+        `);
+    });
+
 });
